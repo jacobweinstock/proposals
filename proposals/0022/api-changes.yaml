@@ -1,0 +1,157 @@
+---
+# hardware data - physical attributes of a machine
+id: 12345
+name: ""
+storage:
+  disks:
+    - device: /dev/sda
+      size: 10G
+    - device: /dev/sdb
+      size: 50G
+network:
+  interfaces:
+    - name: eth0
+      mac: 00:00:00:00:00:00
+    - name: eth1
+      mac: 00:00:00:00:00:01
+facility:
+  facility_code: "ewr1"
+  plan_slug: "c2.medium.x86"
+  plan_version_slug: ""
+manufacturer:
+  id: ""
+  slug: ""
+state: ""
+motherboard:
+  id: ""
+  slug: ""
+  cpus:
+    - model_name: "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz"
+      processor: 1
+      cpu_mhz: 2399.998
+    - model_name: "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz"
+      processor: 2
+      cpu_mhz: 2399.998
+  memory: 120G
+
+---
+# Installer - runtime details and requirements for installing a machine
+id: 678910
+version: "0.1"
+name: ubuntu_provisioning
+global_timeout: 6000
+operating_system:
+  distro: ubuntu
+  os_slug: ubuntu_18_04
+  version: "18.04"
+  license: ""
+tasks:
+  - name: "os-installation"
+    volumes:
+      - /dev:/dev
+      - /dev/console:/dev/console
+      - /lib/firmware:/lib/firmware:ro
+    environment:
+      MIRROR_HOST: "<MIRROR_HOST_IP>"
+    actions:
+      - name: "disk-wipe"
+        image: disk-wipe
+        timeout: 90
+      - name: "disk-partition"
+        image: disk-partition
+        timeout: 600
+        environment:
+          MIRROR_HOST: "<MIRROR_HOST_IP>"
+        volumes:
+          - /statedir:/statedir
+      - name: "install-root-fs"
+        image: install-root-fs
+        timeout: 600
+      - name: "install-grub"
+        image: install-grub
+        timeout: 600
+        volumes:
+          - /statedir:/statedir
+
+---
+# Attribute data - logical attributes used at runtime for installation
+id: 11121314
+name: ""
+bootloader:
+  default:
+    kernel: ""
+    initrd: ""
+    cmdline: ""
+  custom_ipxe:
+    script: ""
+    url: ""
+hostname: "" # option 12
+network:
+  interfaces:
+    - name: eth0
+      ip: 192.168.1.25/24
+      gateway: 192.168.1.1 # option 3
+      name_servers: # option 6
+      - "1.1.1.1"
+      - "8.8.8.8"
+      lease_time: 3300 # option 51
+      ntp_servers: # option 42
+        - "0.pool.ntp.org"
+        - "1.pool.ntp.org"
+        - "2.pool.ntp.org"
+        - "3.pool.ntp.org"
+    - name: eth1
+      ip: 192.168.1.26/24
+      gateway: 192.168.1.1 # option 3
+      name_servers: # option 6
+      - "1.1.1.1"
+      - "8.8.8.8"
+      lease_time: 3300 # option 51
+      ntp_servers: # option 42
+        - "0.pool.ntp.org"
+        - "1.pool.ntp.org"
+        - "2.pool.ntp.org"
+        - "3.pool.ntp.org"
+storage:
+  disks:
+    - device: "/dev/sda"
+      partitions:
+        - label: BIOS
+          number: 1
+          size: 4096
+        - label: SWAP
+          number: 2
+          size: 3993600
+        - label: ROOT
+          number: 3
+          size: 0
+      wipe_table: true
+  filesystems:
+    - mount:
+        create:
+          options:
+            - "-L"
+            - ROOT
+        device: "/dev/sda3"
+        format: ext4
+        point: "/"
+    - mount:
+        create:
+          options:
+            - "-L"
+            - SWAP
+        device: "/dev/sda2"
+        format: swap
+        point: none
+
+---
+# Workflow data - aggregated hardware, installer and attribute data/references that make up all the things needed to provision a machine
+id: ""
+name: ""
+state: ""
+hardware_id: 12345
+hardware_name: ""
+installer_id: 678910
+installer_name: ""
+attribute_id: 11121314
+attribute_name: ""
