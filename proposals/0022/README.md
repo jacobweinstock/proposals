@@ -38,14 +38,22 @@ See the architecture diagram [here](./architecture.png).
 There are a couple nice side effects of this re-architecture.
 
 * we will be able to integrate with existing DHCP servers
-* allows the use of both dynamic and static DHCP addresses
-* we can leverage and contribute to some other open source projects ([pixiecore](https://github.com/danderson/netboot/tree/master/pixiecore), [coredhcp](https://github.com/coredhcp/coredhcp))
-* we can focus our efforts around 3 core areas
+  * allows the use of both dynamic and static DHCP addresses
+* we can leverage and contribute to some other open source projects ([pixiecore](https://github.com/danderson/netboot/tree/master/pixiecore), [coredhcp](https://github.com/coredhcp/coredhcp)), whose knowledge and expertise in their respective technologies is arguably greater than ours
+* we can focus our efforts around 3 core areas that differential the Tinkerbell stack
   * workflow building - tink server
   * installing operating systems - tink-worker/[actions](https://docs.tinkerbell.org/actions/action-architecture/)
   * rules engine to determine if a machine should pxe or not - dewey server
 * simpler code bases as they are more focused and singular in purpose
 * isolate and manage change in smaller more focused areas
+
+## Trade Offs
+
+* introducing other unfamiliar code bases
+* [pixiecore](https://github.com/danderson/netboot/tree/master/pixiecore) is no longer actively being developed (maybe they will donate it to us!)
+* all Tinkerbell components/services won't be owned by the Tinkerbell community
+* more services add to the operational complexity/overhead to deploy and maintain
+* breaking API changes
 
 ## Progress
 
