@@ -35,7 +35,7 @@ Serving DHCP will be isolated to only serve DHCP.
 The work to allow a machine to PXE boot will also be isolated into its own service.
 See the architecture diagram [here](./architecture.png).
 
-There are a couple nice side effects of this re-architecture.
+There are a few nice side effects of this re-architecture.
 
 * we will be able to integrate with existing DHCP servers
   * allows the use of both dynamic and static DHCP addresses
