@@ -57,8 +57,8 @@ There are a few nice side effects of this re-architecture.
 
 ## Progress
 
-There is demo setup available [here](https://github.com/jacobweinstock/tinkerbell-next).
-The POC code for `dewey` is [here](https://github.com/jacobweinstock/dewey).
+There is demo walk through available [here](https://github.com/jacobweinstock/tinkerbell-next).
+The POC code for the `dewey` service is located [here](https://github.com/jacobweinstock/dewey).
 
 > Note - the demo/POC setup doesn't do anything more than boot into the operating system installation environments.
 > There will need to be more work done to get a full action run.
