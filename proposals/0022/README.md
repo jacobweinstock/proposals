@@ -54,7 +54,7 @@ The POC code for `dewey` is [here](https://github.com/jacobweinstock/dewey).
 
 ## System-context-diagram
 
-[proposed re-architecture](./architecture.png)
+![proposed re-architecture](./architecture.png#1)
 
 ## APIs
 
