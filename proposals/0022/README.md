@@ -21,7 +21,7 @@ Goals
 
 * support for custom ipxe scripts/urls
 * support any in memory installation environment
-* customizing these changes are only made through tink cli
+* drive the effort to have tink-server and tink-cli be the focus of our developer experience
 
 Non-Goals
 
