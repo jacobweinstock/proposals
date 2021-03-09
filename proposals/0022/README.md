@@ -65,6 +65,9 @@ The POC code for the `dewey` service is located [here](https://github.com/jacobw
 
 ## System-context-diagram
 
+This proposal is for the `Phase: PXE`.
+The following diagram illustrates where in the Tinkerbell machine provisioning lifecycle this proposal lives.
+
 ![machine provisioning lifecycle](./tinkerbell-lifecycle.png#2)
 
 ## APIs
