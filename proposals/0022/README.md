@@ -70,6 +70,9 @@ The POC code for the `dewey` service is located [here](https://github.com/jacobw
 ## APIs
 
 There is a need to re-architect the existing hardware, template and workflow APIs.
-This is needed in this proposal to allow for specifying custom ipxe scripts/urls and alternate OSIEs.
+These changes are API breaking.
+They warrant their own proposal.
+I am included them here only for context, not to be heavily evaluated with this proposal.
+The need in this proposal to allow for specifying custom ipxe scripts/urls and alternate OSIEs.
 This relates to existing proposal [0018](https://github.com/tinkerbell/proposals/pull/25).
-You can find a yaml mock of the proposed API changes [here](./api-changes.yaml)
+You can find a yaml mock of the proposed API changes [here](./api-changes.yaml).
