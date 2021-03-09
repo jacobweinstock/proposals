@@ -65,7 +65,7 @@ The POC code for the `dewey` service is located [here](https://github.com/jacobw
 
 ## System-context-diagram
 
-![proposed re-architecture](./architecture.png#1)
+![machine provisioning lifecycle](./tinkerbell-lifecycle.png#1)
 
 ## APIs
 
